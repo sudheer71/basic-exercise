@@ -1,2 +1,19 @@
-## deployment1
+name: deployment1-exercise
+on: push
+jobs:
+  deployment1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: install dependencies 
+        run: npm ci
+      - name: run lint
+        run: npm run lint
+      - name: code tests
+        run: npm test  
+      - name: build
+        run: npm run build
+      - name: deploy
+        run: echo "Deploying the application..."    
 
